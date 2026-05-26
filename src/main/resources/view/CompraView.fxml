@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="view_Controller.CompraController">
+    <children>
+        <Label layoutX="50.0" layoutY="20.0" text="Detalles de la Compra">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="lblInfoEvento" layoutX="50.0" layoutY="60.0" text="Cargando información del evento..." textFill="GRAY" />
+
+        <Separator layoutX="50.0" layoutY="90.0" prefWidth="500.0" />
+
+        <Label layoutX="50.0" layoutY="110.0" text="Servicios Adicionales (Patrón Decorator):">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+
+        <CheckBox fx:id="chkVip" layoutX="50.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleCambioAdicionales" text="Añadir Acceso VIP (+$50,000)" />
+        <CheckBox fx:id="chkSeguro" layoutX="50.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleCambioAdicionales" text="Añadir Seguro de Cancelación (+$15,000)" />
+
+        <Separator layoutX="50.0" layoutY="210.0" prefWidth="500.0" />
+
+        <Label fx:id="lblTotal" layoutX="50.0" layoutY="230.0" text="Total a Pagar: $0.0" textFill="GREEN">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <TextField fx:id="txtTarjeta" layoutX="50.0" layoutY="280.0" prefHeight="30.0" prefWidth="250.0" promptText="Número de Tarjeta (Simulada)" />
+
+        <Button fx:id="btnProcesar" layoutX="320.0" layoutY="277.0" mnemonicParsing="false" onAction="#handleProcesarCompra" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand;" text="Procesar Pago">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+
+        <Label fx:id="lblResultado" layoutX="50.0" layoutY="330.0" prefWidth="500.0" wrapText="true" />
+    </children>
+</AnchorPane>
