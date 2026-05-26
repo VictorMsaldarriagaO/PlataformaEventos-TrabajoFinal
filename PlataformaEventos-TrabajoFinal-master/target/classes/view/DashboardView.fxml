@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_poo2.view_Controller.DashboardController">
+    <children>
+        <Label fx:id="lblBienvenida" layoutX="50.0" layoutY="30.0" text="Bienvenido">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="50.0" layoutY="70.0" text="Seleccione un Evento de la lista:" />
+
+        <ListView fx:id="lvEventos" layoutX="50.0" layoutY="100.0" prefHeight="200.0" prefWidth="500.0" />
+
+        <Button fx:id="btnSiguiente" layoutX="420.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleSeleccionarEvento" prefHeight="35.0" prefWidth="130.0" style="-fx-cursor: hand;" text="Comprar Entradas" />
+
+        <Label fx:id="lblError" layoutX="50.0" layoutY="340.0" prefWidth="350.0" textFill="RED" />
+    </children>
+</AnchorPane>
