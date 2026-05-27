@@ -1,5 +1,6 @@
-package VisualController;
+package Visualcontroller;
 
+import Controller.GestionCompraController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,6 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.*;
 
+/**
+ * Administra la vista final de facturación, lee checkboxes dinámicos para calcular
+ * precios en tiempo real y delega el cobro al controlador lógico intermedio.
+ */
 public class CompraController {
 
     @FXML private Label lblInfoEvento;
@@ -21,17 +26,16 @@ public class CompraController {
     private Evento eventoSeleccionado;
     private Zona zonaSeleccionada;
     private Asiento asientoSeleccionado;
-    private CompraFacade fachadaCompras;
+    private GestionCompraController coordinadorLogico;
 
     @FXML
     public void initialize() {
-        this.fachadaCompras = new CompraFacade();
+        this.coordinadorLogico = new GestionCompraController();
     }
 
     public void inicializarDatosCompra(Evento evento) {
         this.eventoSeleccionado = evento;
 
-        // Para propósitos del flujo estructurado, tomamos la primera zona y asiento disponibles del recinto
         if (evento.getRecinto() != null && !evento.getRecinto().getZonas().isEmpty()) {
             this.zonaSeleccionada = evento.getRecinto().getZonas().get(0);
             if (!zonaSeleccionada.getAsientos().isEmpty()) {
@@ -39,26 +43,15 @@ public class CompraController {
             }
         }
 
-        if (zonaSeleccionada != null && asientoSeleccionado != null) {
-            lblInfoEvento.setText("Evento: " + evento.getNombre() + " | Localidad: " + zonaSeleccionada.getNombre() +
-                    " | Asiento: " + asientoSeleccionado.getFila() + asientoSeleccionado.getNumero());
-        }
-
-        actualizarCalculoVisualPrecio();
+        lblInfoEvento.setText("Espectáculo: " + evento.getNombre() + " | Zona: " +
+                (zonaSeleccionada != null ? zonaSeleccionada.getNombre() : "N/A"));
+        handleCambioAdicionales(null);
     }
 
     @FXML
     void handleCambioAdicionales(ActionEvent event) {
-        actualizarCalculoVisualPrecio();
-    }
-
-    private void actualizarCalculoVisualPrecio() {
         if (zonaSeleccionada == null) return;
-
-        // Consume el algoritmo dinámico de precios (Patrón Strategy de la zona)
         double total = zonaSeleccionada.getPrecioCalculado();
-
-        // Emulación visual rápida del impacto del Decorator en la UI
         if (chkVip.isSelected()) total += 50000.0;
         if (chkSeguro.isSelected()) total += 15000.0;
 
@@ -76,8 +69,8 @@ public class CompraController {
 
         Usuario usuarioLogueado = PlataformaService.getInstancia().getUsuarioAutenticado();
 
-        // DELEGACIÓN ESTRATÉGICA: La Fachada procesa el Builder, Decorator, Adapter, State y Observer por detrás
-        boolean exito = fachadaCompras.efectuarCompra(
+        // DELEGACIÓN ESTRATÉGICA: Se invoca al coordinador del paquete controller, sin acoplar la vista a la fachada.
+        boolean exito = coordinadorLogico.ejecutarTransaccion(
                 usuarioLogueado,
                 eventoSeleccionado,
                 zonaSeleccionada,
@@ -90,9 +83,9 @@ public class CompraController {
         if (exito) {
             lblResultado.setText("¡Compra Exitosa! Los logs del Observer se imprimieron en consola.");
             lblResultado.setStyle("-fx-text-fill: green;");
-            btnProcesar.setDisable(true); // Evita duplicidad en el procesamiento de la transacción
+            btnProcesar.setDisable(true);
         } else {
-            lblResultado.setText("Transacción Rechazada. Verifique fondos simulados.");
+            lblResultado.setText("Transacción Rechazada. Verifique fondos o datos.");
             lblResultado.setStyle("-fx-text-fill: red;");
         }
     }

@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Motor central del sistema implementado bajo el patrón Singleton.
+ * Mantiene el estado persistente simulado de la cartelera y usuarios en memoria.
+ */
 public class PlataformaService {
     private static PlataformaService instancia;
 
@@ -19,9 +23,7 @@ public class PlataformaService {
     }
 
     public static PlataformaService getInstancia() {
-        if (instancia == null) {
-            instancia = new PlataformaService();
-        }
+        if (instancia == null) { instancia = new PlataformaService(); }
         return instancia;
     }
 
@@ -64,11 +66,9 @@ public class PlataformaService {
         estadio.agregarZona(vip);
 
         java.time.LocalDateTime fecha = java.time.LocalDateTime.now().plusDays(30);
-        Evento concierto = new Evento("E001", "Concierto de Rock", "Música",
-                "El mejor rock en vivo", "Armenia", fecha,
-                "No se cancela por lluvia", "Devolución 100% si se cancela", estadio);
-        concierto.setEstadoEvento(EstadoEvento.PUBLICADO);
-        eventos.add(concierto);
+        Evento eventoDemo = new Evento("E001", "Concierto Filarmónico", "Música",
+                "Espectáculo clásico", "Armenia", fecha, "No cancelable", "Reembolso 50%", estadio);
+        eventoDemo.setEstadoEvento(EstadoEvento.PUBLICADO);
+        eventos.add(eventoDemo);
     }
-
 }

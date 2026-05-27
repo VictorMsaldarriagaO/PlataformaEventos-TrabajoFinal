@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Reporte especializado con codificación y maquetación simulada para archivos PDF.
+ */
 public class PDFReport extends Report {
     @Override
     public void generate(Object data) {

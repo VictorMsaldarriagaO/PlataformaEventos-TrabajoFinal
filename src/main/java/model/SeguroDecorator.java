@@ -1,5 +1,8 @@
 package model;
-// SeguroDecorator.java
+
+/**
+ * Decorador concreto que añade la cobertura financiera de póliza de cancelación.
+ */
 public class SeguroDecorator extends EntradaDecorator {
     private double costoSeguro;
 

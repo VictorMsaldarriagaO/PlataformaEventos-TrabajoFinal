@@ -1,15 +1,21 @@
 package model;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario {
+/**
+ * Especialización de Persona que representa a un cliente dentro de la plataforma.
+ * Contiene colecciones de métodos de pago válidos asociados.
+ */
+public class Usuario extends Persona {
     private String idUsuario;
     private String nombreCompleto;
     private String correoElectronico;
     private String numeroTelefono;
-    private List<String> metodosPagoSimulados; // Lo mantenemos simple hasta implementar el Adapter
+    private List<String> metodosPagoSimulados;
 
     public Usuario(String idUsuario, String nombreCompleto, String correoElectronico, String numeroTelefono) {
+        super(idUsuario, nombreCompleto, correoElectronico, numeroTelefono);
         this.idUsuario = idUsuario;
         this.nombreCompleto = nombreCompleto;
         this.correoElectronico = correoElectronico;
@@ -21,19 +27,9 @@ public class Usuario {
         this.metodosPagoSimulados.add(metodo);
     }
 
-    public String getIdUsuario() {
-        return idUsuario;
-    }
-    public String getNombreCompleto() {
-        return nombreCompleto;
-    }
-    public String getCorreoElectronico() {
-        return correoElectronico;
-    }
-    public String getNumeroTelefono() {
-        return numeroTelefono;
-    }
-    public List<String> getMetodosPagoSimulados() {
-        return metodosPagoSimulados;
-    }
+    public String getIdUsuario() { return idUsuario; }
+    public String getNombreCompleto() { return nombreCompleto; }
+    public String getCorreoElectronico() { return correoElectronico; }
+    public String getNumeroTelefono() { return numeroTelefono; }
+    public List<String> getMetodosPagoSimulados() { return metodosPagoSimulados; }
 }

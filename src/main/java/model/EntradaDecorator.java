@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Decorador abstracto estructural encargado de mantener la cadena de referencias.
+ */
 public abstract class EntradaDecorator implements EntradaComponent {
     protected EntradaComponent entradaEnvuelta;
 
@@ -14,7 +17,5 @@ public abstract class EntradaDecorator implements EntradaComponent {
     public String getDetalles() { return entradaEnvuelta.getDetalles(); }
 
     @Override
-    public Asiento getAsiento() {
-        return entradaEnvuelta.getAsiento(); // Delega en cadena hasta llegar a BaseEntrada
-    }
+    public Asiento getAsiento() { return entradaEnvuelta.getAsiento(); }
 }

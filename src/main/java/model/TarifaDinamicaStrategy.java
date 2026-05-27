@@ -1,10 +1,13 @@
 package model;
-// TarifaDinámicaStrategy.java (Implementación 2: Aumenta por alta demanda)
+
+/**
+ * Estrategia de precio dinámico basado en factores externos como picos de alta demanda.
+ */
 public class TarifaDinamicaStrategy implements PricingStrategy {
     private double factorMultiplicador;
 
     public TarifaDinamicaStrategy(double factorMultiplicador) {
-        this.factorMultiplicador = factorMultiplicador; // P. ej. 1.2 para un 20% más
+        this.factorMultiplicador = factorMultiplicador;
     }
 
     @Override

@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Componente concreto básico que implementa EntradaComponent sin adicionales.
+ */
 public class BaseEntrada implements EntradaComponent {
     private String idEntrada;
     private Zona zona;
@@ -20,7 +23,5 @@ public class BaseEntrada implements EntradaComponent {
     }
 
     @Override
-    public Asiento getAsiento() {
-        return this.asiento; // Implementación del nuevo método
-    }
+    public Asiento getAsiento() { return this.asiento; }
 }

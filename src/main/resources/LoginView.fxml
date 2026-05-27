@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/8"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="view_Controller.LoginController">
+            fx:controller="Visualcontroller.LoginController">
     <children>
         <Label layoutX="175.0" layoutY="60.0" text="Plataforma de Eventos">
             <font>
@@ -22,7 +22,7 @@
         <TextField fx:id="txtCorreo" layoutX="175.0" layoutY="160.0" prefHeight="30.0" prefWidth="250.0" promptText="Correo (ej. josedavid@email.com)" />
         <TextField fx:id="txtTelefono" layoutX="175.0" layoutY="210.0" prefHeight="30.0" prefWidth="250.0" promptText="Teléfono (ej. 3001234567)" />
 
-        <Button fx:id="btnIngresar" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleIngresar" prefHeight="35.0" prefWidth="140.0" style="-fx-cursor: hand;" text="Ingresar al Sistema" />
+        <Button fx:id="btnIngresar" layoutX="230.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="35.0" prefWidth="140.0" style="-fx-cursor: hand;" text="Ingresar al Sistema" />
 
         <Label fx:id="lblMensaje" alignment="CENTER" layoutX="100.0" layoutY="320.0" prefWidth="400.0" textFill="RED" />
     </children>

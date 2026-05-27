@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Reporte especializado con delimitadores de texto para hojas de cálculo CSV.
+ */
 public class CSVReport extends Report {
     @Override
     public void generate(Object data) {

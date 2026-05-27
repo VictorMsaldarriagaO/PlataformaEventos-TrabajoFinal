@@ -1,5 +1,6 @@
-package VisualController;
+package Visualcontroller;
 
+import Controller.AutenticacionController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,14 +8,24 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.PlataformaService;
 import java.io.IOException;
 
+/**
+ * Escucha las interacciones de la GUI de Login. Delega la validación real
+ * al controlador lógico y efectúa los cambios de escena en pantalla.
+ */
 public class LoginController {
 
     @FXML private TextField txtCorreo;
     @FXML private TextField txtTelefono;
     @FXML private Label lblError;
+
+    private AutenticacionController logicaController;
+
+    @FXML
+    public void initialize() {
+        this.logicaController = new AutenticacionController();
+    }
 
     @FXML
     void handleLogin(ActionEvent event) {
@@ -26,14 +37,13 @@ public class LoginController {
             return;
         }
 
-        // Validación consumiendo el patrón Singleton del Modelo
-        boolean exito = PlataformaService.getInstancia().iniciarSesion(correo, telefono);
+        // DELGEGACIÓN DE RESPONSABILIDAD: Invocación al controlador lógico puro
+        boolean exito = logicaController.procesarAutenticacion(correo, telefono);
 
         if (exito) {
             try {
-                // Transición fluida de escena al Dashboard de eventos
                 Stage stage = (Stage) txtCorreo.getScene().getWindow();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view_Controller/DashboardView.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/DashboardView.fxml"));
                 Scene scene = new Scene(fxmlLoader.load());
                 stage.setTitle("Cartelera de Eventos");
                 stage.setScene(scene);

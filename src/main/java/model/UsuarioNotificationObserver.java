@@ -1,4 +1,8 @@
 package model;
+
+/**
+ * Observador concreto que asocia logs en consola para un cliente específico.
+ */
 public class UsuarioNotificationObserver implements Observer {
     private Usuario usuario;
 

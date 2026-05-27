@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Segmento del recinto que delimita un aforo específico y un precio base estándar.
+ */
 public class Zona {
     private String idZona;
     private String nombre;

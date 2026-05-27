@@ -1,8 +1,11 @@
 package model;
-// TarifaEstandarStrategy.java (Implementación 1: Precio normal)
+
+/**
+ * Estrategia de precio plano sin modificaciones comerciales de recargo.
+ */
 public class TarifaEstandarStrategy implements PricingStrategy {
     @Override
     public double calcularPrecio(double precioBase) {
-        return precioBase; // No hace modificaciones
+        return precioBase;
     }
 }

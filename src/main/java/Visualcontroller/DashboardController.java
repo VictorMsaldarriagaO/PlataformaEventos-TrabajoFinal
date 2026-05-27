@@ -1,4 +1,4 @@
-package VisualController;
+package Visualcontroller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +15,9 @@ import model.PlataformaService;
 import model.Usuario;
 import java.io.IOException;
 
+/**
+ * Controla visualmente el listado de cartelera de eventos disponibles para compra.
+ */
 public class DashboardController {
 
     @FXML private Label lblBienvenida;
@@ -26,15 +29,12 @@ public class DashboardController {
 
     @FXML
     public void initialize() {
-        // Recuperar el usuario que inició sesión desde el Singleton
         Usuario autenticado = PlataformaService.getInstancia().getUsuarioAutenticado();
         if (autenticado != null) {
             lblBienvenida.setText("Bienvenido, " + autenticado.getNombreCompleto());
         }
 
-        // Cargar eventos del modelo en memoria
         listaEventosModelo = FXCollections.observableArrayList(PlataformaService.getInstancia().getEventos());
-
         ObservableList<String> nombresVisuales = FXCollections.observableArrayList();
         for (Evento ev : listaEventosModelo) {
             nombresVisuales.add(ev.getNombre() + " - " + ev.getCiudad() + " (" + ev.getCategoria() + ")");
@@ -54,10 +54,9 @@ public class DashboardController {
 
         try {
             Stage stage = (Stage) lvEventos.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view_Controller/CompraView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/CompraView.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
 
-            // Inyección de dependencias manual entre controladores de JavaFX
             CompraController compraCtrl = fxmlLoader.getController();
             compraCtrl.inicializarDatosCompra(eventoSeleccionado);
 

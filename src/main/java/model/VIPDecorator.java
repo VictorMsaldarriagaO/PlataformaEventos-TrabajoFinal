@@ -1,6 +1,8 @@
 package model;
 
-// VIPDecorator.java
+/**
+ * Decorador concreto que inyecta el valor de acceso a amenidades VIP.
+ */
 public class VIPDecorator extends EntradaDecorator {
     private double costoVIP;
 

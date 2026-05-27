@@ -2,6 +2,9 @@ package model;
 
 import java.util.UUID;
 
+/**
+ * Patrón creacional Builder para instanciar compras garantizando la integridad de datos obligatorios.
+ */
 public class CompraBuilder {
     private Compra compra;
     private Usuario usuario;
@@ -25,7 +28,6 @@ public class CompraBuilder {
             String idGenerado = "COMP-" + UUID.randomUUID().toString().substring(0, 5).toUpperCase();
             this.compra = new Compra(idGenerado, this.usuario, this.evento);
         }
-
         EntradaComponent nuevaEntrada = new BaseEntrada("ENT-" + System.currentTimeMillis(), zona, asiento);
         this.compra.agregarEntrada(nuevaEntrada);
         return this;

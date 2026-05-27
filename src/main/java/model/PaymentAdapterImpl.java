@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Adaptador estructural (Pattern Adapter) que traduce tipos de datos nativos hacia la API externa.
+ */
 public class PaymentAdapterImpl implements PaymentAdapter {
     private SimulatedPaymentGateway gateway;
 
