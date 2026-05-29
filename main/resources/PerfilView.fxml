@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="350.0" prefWidth="450.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Visualcontroller.PerfilController">
+
+    <children>
+
+        <Label layoutX="140.0" layoutY="20.0" text="Mi Perfil">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="50.0" layoutY="80.0" text="Nombre:" />
+        <TextField fx:id="txtNombre"
+                   layoutX="150.0"
+                   layoutY="75.0"
+                   prefWidth="220.0" />
+
+        <Label layoutX="50.0" layoutY="140.0" text="Correo:" />
+        <TextField fx:id="txtCorreo"
+                   layoutX="150.0"
+                   layoutY="135.0"
+                   prefWidth="220.0" />
+
+        <Label layoutX="50.0" layoutY="200.0" text="Teléfono:" />
+        <TextField fx:id="txtTelefono"
+                   layoutX="150.0"
+                   layoutY="195.0"
+                   prefWidth="220.0" />
+
+        <Button layoutX="150.0"
+                layoutY="270.0"
+                mnemonicParsing="false"
+                onAction="#handleGuardarCambios"
+                prefHeight="35.0"
+                prefWidth="170.0"
+                text="Guardar Cambios" />
+
+        <Label fx:id="lblMensaje"
+               layoutX="120.0"
+               layoutY="320.0"
+               textFill="green" />
+
+    </children>
+</AnchorPane>

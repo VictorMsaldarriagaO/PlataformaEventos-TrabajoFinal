@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Visualcontroller.GestionEventosController">
+    <children>
+        <Label layoutX="30.0" layoutY="20.0" text="Gestión de Eventos y Recintos">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Separator layoutX="30.0" layoutY="60.0" prefWidth="740.0" />
+
+        <TableView fx:id="tablaEventos" layoutX="30.0" layoutY="80.0" prefHeight="200.0" prefWidth="740.0">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="70.0" text="ID" />
+                <TableColumn fx:id="colNombre" prefWidth="150.0" text="Nombre" />
+                <TableColumn fx:id="colCategoria" prefWidth="100.0" text="Categoría" />
+                <TableColumn fx:id="colFecha" prefWidth="130.0" text="Fecha/Hora" />
+                <TableColumn fx:id="colRecinto" prefWidth="140.0" text="Recinto" />
+                <TableColumn fx:id="colEstado" prefWidth="100.0" text="Estado" />
+            </columns>
+        </TableView>
+
+        <Label layoutX="30.0" layoutY="300.0" text="Formulario de Evento:">
+            <font>
+                <Font name="System Bold" size="14.0" />
+            </font>
+        </Label>
+
+        <TextField fx:id="txtIdEvento" layoutX="30.0" layoutY="330.0" promptText="ID Evento (Ej. E002)" />
+        <TextField fx:id="txtNombre" layoutX="200.0" layoutY="330.0" prefWidth="200.0" promptText="Nombre del Evento" />
+        <TextField fx:id="txtCategoria" layoutX="420.0" layoutY="330.0" promptText="Categoría" />
+        <DatePicker fx:id="dpFecha" layoutX="600.0" layoutY="330.0" prefWidth="170.0" promptText="Fecha Programada" />
+
+        <TextField fx:id="txtDescripcion" layoutX="30.0" layoutY="380.0" prefWidth="370.0" promptText="Descripción del Espectáculo" />
+        <ComboBox fx:id="cbRecinto" layoutX="420.0" layoutY="380.0" prefWidth="170.0" promptText="Asignar Recinto" />
+        <ComboBox fx:id="cbEstado" layoutX="600.0" layoutY="380.0" prefWidth="170.0" promptText="Estado Inicial" />
+
+        <Button layoutX="30.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleCrearEvento" style="-fx-base: #28a745;" text="Crear Nuevo Evento" textFill="WHITE" />
+        <Button layoutX="175.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleActualizarEvento" style="-fx-base: #ffc107;" text="Actualizar" />
+        <Button layoutX="265.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleEliminarEvento" style="-fx-base: #dc3545;" text="Eliminar" textFill="WHITE" />
+        <Button layoutX="600.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleCambiarEstado" text="Aplicar Cambio de Estado" />
+
+        <Separator layoutX="30.0" layoutY="500.0" prefWidth="740.0" />
+        <Label fx:id="lblMensaje" layoutX="30.0" layoutY="520.0" prefWidth="600.0">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Label>
+        <Button layoutX="670.0" layoutY="540.0" mnemonicParsing="false" onAction="#handleVolver" prefWidth="100.0" text="Volver" />
+    </children>
+</AnchorPane>
