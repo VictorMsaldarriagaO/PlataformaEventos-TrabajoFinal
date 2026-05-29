@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Visualcontroller.DashboardController">
+    <children>
+        <Label fx:id="lblBienvenida" layoutX="50.0" layoutY="20.0" text="Bienvenido, Usuario">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="50.0" layoutY="60.0" text="Filtrar eventos:" />
+        <ComboBox fx:id="cmbCategorias" layoutX="50.0" layoutY="80.0" prefWidth="150.0" promptText="Categoría" />
+        <DatePicker fx:id="dateFiltro" layoutX="210.0" layoutY="80.0" prefWidth="150.0" promptText="Fecha" />
+        <Button layoutX="370.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleFiltrar" text="Filtrar" />
+
+        <Label layoutX="50.0" layoutY="120.0" text="Cartelera:" />
+        <ListView fx:id="lvEventos" layoutX="50.0" layoutY="140.0" prefHeight="250.0" prefWidth="500.0" />
+
+        <Button fx:id="btnIrHistorial" layoutX="50.0" layoutY="410.0"
+                mnemonicParsing="false" onAction="#handleIrHistorial"
+                prefHeight="35.0" prefWidth="150.0" text="Ver Historial" />
+
+        <Button fx:id="btnPerfil"
+                layoutX="220.0"
+                layoutY="410.0"
+                mnemonicParsing="false"
+                onAction="#handleAbrirPerfil"
+                prefHeight="35.0"
+                prefWidth="150.0"
+                text="Mi Perfil" />
+
+        <Button fx:id="btnSiguiente" layoutX="420.0" layoutY="410.0"
+                mnemonicParsing="false" onAction="#handleSeleccionarEvento"
+                prefHeight="35.0" prefWidth="130.0" text="Comprar" />
+
+        <Label fx:id="lblError" layoutX="50.0" layoutY="460.0" textFill="red" />
+    </children>
+</AnchorPane>

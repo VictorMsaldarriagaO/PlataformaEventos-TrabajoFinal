@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Visualcontroller.LoginController">
+    <children>
+        <Label layoutX="175.0" layoutY="60.0" text="Plataforma de Eventos">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="254.0" layoutY="110.0" text="Iniciar Sesión">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+
+        <TextField fx:id="txtCorreo" layoutX="175.0" layoutY="160.0" prefHeight="30.0" prefWidth="250.0" promptText="Correo" />
+        <TextField fx:id="txtTelefono" layoutX="175.0" layoutY="210.0" prefHeight="30.0" prefWidth="250.0" promptText="Teléfono" />
+
+        <Button layoutX="175.0" layoutY="260.0" prefWidth="250.0" text="Iniciar Sesión" onAction="#handleLogin" />
+
+        <Button fx:id="btnIrRegistro" layoutX="175.0" layoutY="300.0" prefWidth="250.0"
+                mnemonicParsing="false" onAction="#handleIrRegistro"
+                text="¿No tienes cuenta? Regístrate aquí"
+                style="-fx-background-color: transparent; -fx-text-fill: blue; -fx-cursor: hand;" />
+
+        <Label fx:id="lblError" layoutX="175.0" layoutY="340.0" prefWidth="250.0" textFill="red" />
+    </children>
+</AnchorPane>

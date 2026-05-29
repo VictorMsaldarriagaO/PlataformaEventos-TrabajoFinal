@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="350.0" prefWidth="400.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Visualcontroller.RegistroController">
+    <children>
+        <Label layoutX="120.0" layoutY="30.0" text="Registro de Usuario">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <TextField fx:id="txtNombre" layoutX="75.0" layoutY="80.0" prefWidth="250.0" promptText="Nombre Completo" />
+        <TextField fx:id="txtCorreo" layoutX="75.0" layoutY="120.0" prefWidth="250.0" promptText="Correo Electrónico" />
+        <TextField fx:id="txtTelefono" layoutX="75.0" layoutY="160.0" prefWidth="250.0" promptText="Teléfono" />
+
+        <Button fx:id="btnRegistrar" layoutX="150.0" layoutY="220.0" mnemonicParsing="false"
+                onAction="#handleRegistrar" text="Crear Cuenta" />
+
+        <Button fx:id="btnVolver" layoutX="158.0" layoutY="260.0" mnemonicParsing="false"
+                onAction="#handleVolver" text="Volver" style="-fx-background-color: transparent;" />
+
+        <Label fx:id="lblMensaje" layoutX="75.0" layoutY="300.0" prefWidth="250.0" alignment="CENTER" />
+    </children>
+</AnchorPane>
